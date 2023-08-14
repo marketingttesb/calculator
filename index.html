@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function discount() {
+        var monthlySewa = Array(300,600,900)
+        var monthlyApiAir = Array(180,250,400)
+        var buyActualPrice = document.getElementById('saleP').value
+        var bagPerDay = document.getElementById('bagPD').value
+        var bagPerKG = document.getElementById('bagperKG').value
+        var operationDayPerMonth = document.getElementById('operationDayPM').value
+        
+        //var cardDisc = document.getElementById('discountP').value
+
+        var buyIceBagCost = (buyActualPrice * bagPerDay) * operationDayPerMonth
+
+        var totalWeightPerDay = (bagPerKG * bagPerDay)
+
+        document.getElementById('DiscountAmount').value = buyIceBagCost
+
+        document.getElementById('totalbagperKG').value = totalWeightPerDay
+
+        var SewaBulanan = document.getElementById('imOption').value
+
+        let tempSewaBulanan = monthlySewa[SewaBulanan]
+        let tempBillBublanan = monthlyApiAir[SewaBulanan]
+        document.getElementById('MonthlyRent').innerHTML = tempSewaBulanan
+        document.getElementById('MonthlyBill').innerHTML = tempBillBublanan
+
+        let totalBulanan = tempSewaBulanan + tempBillBublanan
+        //alert(totalBulanan)
+        document.getElementById('totalMonthly').innerHTML = totalBulanan
+        //document.getElementById("totalMonthly").value = 10;
+
+        //var priceAfterDisc = buyActualPrice - buyAtDiscAmount
+        //document.getElementById('PriceAfterDisc').innerHTML = priceAfterDisc
+
+        let totalSaving = buyIceBagCost - totalBulanan
+        document.getElementById('monthlySaving').innerHTML = totalSaving
+        }
+
+        document.querySelectorAll("#DiscountAmount").forEach(discount)
+    </script>
+    <style>
+        number{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ice Maker VS Ice Bag Calculator</h1>
+    <table>
+        <tr>
+            <td><label for="sale_price">Price / Bag (RM)</label></td>
+            <td>: <input type="number" pattern="[0-9]+([\.,][0-9]+)?" step="00.50" name="sale_price" class="form-control" id="saleP" oninput="discount();"></td>
+            <td><label for="bagperKG">Weight / Bag (KG)</label></td>
+            <td>: <input type="number" pattern="[0-9]+([\.,][0-9]+)?" step="00.50" name="bagperKG" class="form-control" id="bagperKG" oninput="discount();"></td>
+        </tr>
+
+        <tr>
+            <td><label for="bag_per_day">Bag / Day</label></td>
+            <td>: <input type="number" pattern="[0-9]+([\.,][0-9]+)?" step="1" name="bagPD" class="form-control" id="bagPD" oninput="discount();"></td>
+            <td><label for="totalbagperKG">Total Weight / Day (KG)</label></td>
+            <td>: <input type="number" pattern="[0-9]+([\.,][0-9]+)?" step="00.50" name="totalbagperKG" class="form-control" id="totalbagperKG" oninput="discount();"></td>
+        </tr>
+
+        <tr>
+            <td><label for="operation_day_per_month">Operation Days / Month</label></td>
+            <td>: <input type="number" pattern="[0-9]+([\.,][0-9]+)?" step="00.01" name="operationDayPM" class="form-control" id="operationDayPM" oninput="discount();"></td>
+            <td><label for="discount">Total Cost Buying Ice Bag / Month (RM)</label></td>
+            <td>: <input type="number" name="discount" placeholder="discount" class="form-control" id="DiscountAmount"></td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td><label for="operation_day_per_month">Ice Maker Option</label></td>
+            <td>: <select name="imOption" id="imOption" onchange="discount();">
+                <option value="">Please Select</option>
+                <option value="0">100Kg Per 24Hours</option>
+                <option value="1">200Kg Per 24Hours</option>
+                <option value="2">300Kg Per 24Hours</option>
+            </select></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Monthly Rent</td>
+            <td>: RM <span id="MonthlyRent"></span> / Month</td>
+            <td>Monthly Electicity/Water Bill</td>
+            <td>: RM <span id="MonthlyBill"></span> / Month</td>
+        </tr>
+
+        <tr>
+            <td>Total Monthly Cost</td>
+            <td>: RM <span id="totalMonthly"></span> / Month</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Monthly Saving</td>
+            <td>: RM <span id="monthlySaving"></span> / Month</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+    
+</body>
+</html>
