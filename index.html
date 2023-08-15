@@ -90,7 +90,7 @@
             <div class="col">
                 <label for="totalbagperKG">Total Weight / Day</label>
                 <div class="input-group mb-3">
-                    <input type="number" pattern="[0-9]+([\.,][0-9]+)?" step="00.50" name="totalbagperKG" class="form-control" id="totalbagperKG" oninput="discount();">
+                    <input type="number" name="totalbagperKG" class="form-control" id="totalbagperKG">
                     <span class="input-group-text">Kg</span>
                 </div>
             </div>
@@ -141,7 +141,7 @@
 
         <div class="row align-items-center">
             <div class="col">
-                <label for="operation_day_per_month">Monthly Electicity/Water Bill</label>
+                <label for="operation_day_per_month">Monthly Bill*</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">RM</span>
                     <input readonly="readonly" type="number" name="MonthlyBill" class="form-control" id="MonthlyBill">
@@ -165,6 +165,8 @@
                 </h2>
             </div>
         </div>
+
+        <em>* This is only simulation for electicity + water bills</em>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     </div>
