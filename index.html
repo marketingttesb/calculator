@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <script>
         function discount() {
-            var monthlySewa = Array(300,600,900)
+            var monthlySewa = Array(350,650,850)
             var monthlyApiAir = Array(180,250,400)
             var buyActualPrice = document.getElementById('saleP').value
             var bagPerDay = document.getElementById('bagPD').value
@@ -117,13 +117,13 @@
 
         <div class="row align-items-center">
             <div class="col">
-                <label for="operation_day_per_month">Ice Maker Option</label>
+                <label for="operation_day_per_month">Ice Maker Option (Max Kg/24 Hours)</label>
                 <div class="input-group mb-3">
                     <select class="form-select" name="imOption" id="imOption" onchange="discount();">
                         <option value="">Please Select</option>
-                        <option value="0">100Kg</option>
-                        <option value="1">200Kg</option>
-                        <option value="2">300Kg</option>
+                        <option value="0">(100) Small</option>
+                        <option value="1">(200) Medium</option>
+                        <option value="2">(300) Large</option>
                     </select>
                     <span class="input-group-text"> 24Hrs</span>
                 </div>
